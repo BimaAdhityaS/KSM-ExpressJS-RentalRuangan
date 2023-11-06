@@ -1,0 +1,648 @@
+{
+	"info": {
+		"_postman_id": "d2ec5495-0088-4b01-bd39-1c2a005b2db8",
+		"name": "qbit-case3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30153518"
+	},
+	"item": [
+		{
+			"name": "Get All Room",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/admin/rooms",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"admin",
+						"rooms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Room By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/admin/rooms/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"admin",
+						"rooms",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Add Room",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Lotus 2",
+							"type": "text"
+						},
+						{
+							"key": "kapasitas",
+							"value": "1 - 2 orang",
+							"type": "text"
+						},
+						{
+							"key": "alamat",
+							"value": "Jl Rajawali",
+							"type": "text"
+						},
+						{
+							"key": "deskripsi",
+							"value": "Ruangan Lotus",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "1000000",
+							"type": "text"
+						},
+						{
+							"key": "pay_per",
+							"value": "bulan",
+							"type": "text"
+						},
+						{
+							"key": "lokasi_url",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/DELL/Downloads/chastity-cortijo-R-w5Q-4Mqm0-unsplash.jpg"
+						},
+						{
+							"key": "kontak_pemilik",
+							"value": "085770517055",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/admin/rooms",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"admin",
+						"rooms"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Tambah Ruangan Berhasil",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Lotus 1",
+									"type": "text"
+								},
+								{
+									"key": "kapasitas",
+									"value": "1 - 2 orang",
+									"type": "text"
+								},
+								{
+									"key": "alamat",
+									"value": "Jl Rajawali",
+									"type": "text"
+								},
+								{
+									"key": "deskripsi",
+									"value": "Ruangan Lotus",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "100000",
+									"type": "text"
+								},
+								{
+									"key": "pay_per",
+									"value": "day",
+									"type": "text"
+								},
+								{
+									"key": "lokasi_url",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/DELL/Downloads/chastity-cortijo-R-w5Q-4Mqm0-unsplash.jpg"
+								},
+								{
+									"key": "kontak_pemilik",
+									"value": "085770517055",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/admin/rooms",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"admin",
+								"rooms"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2a-zOw7bd0gBUqSqxtVoJ099s0AXdc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 25 Oct 2023 19:50:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Ruangan berhasil ditambahkan\"\n}"
+				}
+			]
+		},
+		{
+			"name": "PATCH update room",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Lotus 3",
+							"type": "text"
+						},
+						{
+							"key": "kapasitas",
+							"value": "1 - 10 orang",
+							"type": "text"
+						},
+						{
+							"key": "alamat",
+							"value": "Jl Rajawali",
+							"type": "text"
+						},
+						{
+							"key": "deskripsi",
+							"value": "Ruangan Lotus",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "100000",
+							"type": "text"
+						},
+						{
+							"key": "pay_per",
+							"value": "day",
+							"type": "text"
+						},
+						{
+							"key": "lokasi_url",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/DELL/Downloads/mark-champs-Id2IIl1jOB0-unsplash.jpg"
+						},
+						{
+							"key": "kontak_pemilik",
+							"value": "085770517055",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/admin/rooms/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"admin",
+						"rooms",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Ruangan Tanpa Gambar",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Lotus 3",
+									"type": "text"
+								},
+								{
+									"key": "kapasitas",
+									"value": "1 - 10 orang",
+									"type": "text"
+								},
+								{
+									"key": "alamat",
+									"value": "Jl Rajawali",
+									"type": "text"
+								},
+								{
+									"key": "deskripsi",
+									"value": "Ruangan Lotus",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "100000",
+									"type": "text"
+								},
+								{
+									"key": "pay_per",
+									"value": "day",
+									"type": "text"
+								},
+								{
+									"key": "lokasi_url",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "kontak_pemilik",
+									"value": "085770517055",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/admin/rooms/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"admin",
+								"rooms",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"27-wK8meq3Nn4SejO3zkB/ZzNXlDJk\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 25 Oct 2023 19:53:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Ruangan berhasil diupdate\"\n}"
+				},
+				{
+					"name": "Update Ruangan Dengan Gambar",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Lotus 4",
+									"type": "text"
+								},
+								{
+									"key": "kapasitas",
+									"value": "1 - 10 orang",
+									"type": "text"
+								},
+								{
+									"key": "alamat",
+									"value": "Jl Rajawali",
+									"type": "text"
+								},
+								{
+									"key": "deskripsi",
+									"value": "Ruangan Lotus",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "100000",
+									"type": "text"
+								},
+								{
+									"key": "pay_per",
+									"value": "day",
+									"type": "text"
+								},
+								{
+									"key": "lokasi_url",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/DELL/Downloads/Twibbon.jpeg"
+								},
+								{
+									"key": "kontak_pemilik",
+									"value": "085770517055",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/admin/rooms/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"admin",
+								"rooms",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"27-wK8meq3Nn4SejO3zkB/ZzNXlDJk\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 25 Oct 2023 19:54:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Ruangan berhasil diupdate\"\n}"
+				}
+			]
+		},
+		{
+			"name": "DELETE ROOM",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/admin/rooms/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"admin",
+						"rooms",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE STATUS",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "status",
+							"value": "OPEN",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/admin/rooms/status/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"admin",
+						"rooms",
+						"status",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:5000",
+			"type": "string"
+		}
+	]
+}
