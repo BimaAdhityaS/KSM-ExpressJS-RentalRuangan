@@ -21,7 +21,7 @@ const Welcome = () => {
         <div>
             <div className='my-10'>
                 <h1 className='text-center text-5xl font-bold'>Halaman Dashboard</h1>
-                <h2 className='text-center text-2xl font-medium text-gray-500'>Selamat Datang Bima A S</h2>
+                <h2 className='text-center text-2xl font-medium text-gray-500'>Selamat Datang Admin</h2>
             </div>
 
             <div className='w-full bg-slate-900 px-4 py-4 rounded-lg border-white border-4'>
