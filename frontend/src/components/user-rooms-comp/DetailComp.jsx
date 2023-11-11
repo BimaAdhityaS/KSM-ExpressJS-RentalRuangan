@@ -1,9 +1,33 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import { NavLink, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import Gallery from "./Gallery";
 import BackButton from "../../img/back-button.png";
 
+
 const DetailComp = () => {
+  const { id } = useParams()
+  const [rooms, setrooms] = useState([])
+
+  const getRooms = async () => {
+    const response = await axios.get(`http://localhost:5000/admin/rooms/${id}`)
+    setrooms(response.data)
+  }
+
+  function formatPrice(price) {
+    if (typeof price === 'number') {
+      return `Rp ${price.toLocaleString('id-ID')}`;
+    }
+    return price;
+  }
+
+  const formattedPrice = formatPrice(rooms.price);
+
+  useEffect(() => {
+    getRooms()
+  }, [])
+
   return (
     <>
       <div>
@@ -20,15 +44,21 @@ const DetailComp = () => {
         <div className="w-full p-5">
           <section className="text-gray-700 body-font overflow-hidden bg-white w-full mx-auto border border-gray-300 rounded shadow-md">
             <div className="container px-5 py-4 mx-auto">
+              <div className="flex justify-center items-center">
+                <img
+                  className="h-auto w-1/3 rounded-lg"
+                  src={rooms.url}
+                  alt="image_Banner"
+                />
+              </div>
               <div className="lg:w-4/5 mx-auto flex flex-wrap">
-                <Gallery />
                 <hr className="w-full border-0.5 h-0.5 bg-gray-200 mt-10" />
                 <div className="lg:w-full w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                   <h2 className="text-sm title-font text-gray-500 tracking-widest">
-                    Nama Ruangan
+                    {rooms.name}
                   </h2>
                   <h2 className="text-gray-900 text-2xl title-font font-medium mb-1">
-                    Nama Ruangan
+                    {rooms.name}
                   </h2>
                   <div className="flex mb-4">
                     <span className="flex items-center">
@@ -41,27 +71,31 @@ const DetailComp = () => {
                         <path d="M16 15.503A5.041 5.041 0 1 0 16 5.42a5.041 5.041 0 0 0 0 10.083zm0 2.215c-6.703 0-11 3.699-11 5.5v3.363h22v-3.363c0-2.178-4.068-5.5-11-5.5z"></path>
                       </svg>
                       <p className="text-red-500 ml-3 font-medium">
-                        "Kapasitas Ruangan"
+                        {rooms.kapasitas}
                       </p>
                     </span>
-                    <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
-                      <a className="" href="#/">
-                        Status
-                      </a>
-                    </span>
+                    {rooms.status === "OPEN" ? (
+                      <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 font-medium text-green-500">
+                        OPEN
+                      </span>
+                    ) : (
+                      <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 font-medium text-red-500">
+                        CLOSED
+                      </span>
+                    )}
                   </div>
-                  <p className="leading-relaxed">Room Deskripsi</p>
+                  <p className="leading-relaxed">{rooms.deskripsi}</p>
                   <p className="mt-4">
                     <span className="font-medium text-black">
                       Kontak Pemilik :{" "}
                     </span>
-                    "Kontak Pemilik"
+                    {rooms.kontak_pemilik}
                   </p>
                   <p className="mt-4">
                     <span className="font-medium text-black">Alamat : </span>
-                    "Alamat"
+                    {rooms.alamat}
                   </p>
-                  <a href="#/">
+                  <a href={rooms.lokasi_url}>
                     <div className="flex">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -133,24 +167,21 @@ const DetailComp = () => {
                           d="M56.095,72c-0.101,0-0.202-0.03-0.29-0.093c-0.225-0.16-0.277-0.472-0.117-0.697	c1.798-2.527,3.743-4.984,5.745-7.488c4.109-5.141,7.991-9.996,10.34-15.42c0.109-0.255,0.403-0.373,0.657-0.261	c0.254,0.11,0.37,0.404,0.261,0.657c-2.402,5.547-6.324,10.454-10.477,15.648c-1.992,2.492-3.929,4.937-5.712,7.443	C56.404,71.927,56.251,72,56.095,72z"
                         ></path>
                       </svg>
-                      <span className="ml-2 my-4">"Gmaps Room"</span>
+                      <span className="ml-2 my-4">{rooms.lokasi_url}</span>
                     </div>
                   </a>
                   <hr className="w-full border-0.5 h-0.5 bg-gray-200 mt-4" />
                   <div className="flex mt-6">
                     <span className="title-font font-medium text-xl sm:text-[25px] text-gray-900">
-                      Format Price
+                      {formattedPrice}
                       <span class="text-[15px] font-bold text-green-600">
-                        /day
+                        {rooms.pay_per}
                       </span>
                     </span>
+
                     <Link
-                      className="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded"
-                      to={`/admin/rooms/`}
-                    >
-                      <button className="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">
-                        Contact
-                      </button>
+                      to={`https://api.whatsapp.com/send/?phone=62${rooms.kontak_pemilik}&text&type=phone_number&app_absent=0`} className="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">
+                      Contact The Owner
                     </Link>
                   </div>
                 </div>

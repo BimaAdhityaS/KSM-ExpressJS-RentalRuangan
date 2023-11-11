@@ -3,6 +3,7 @@ import {
     createRoom,
     deleteRoom,
     getAllRooms,
+    getAllRoomsBySearch,
     getRoomById,
     updateRoom,
     updateStatusRoom
@@ -10,6 +11,7 @@ import {
 
 const router = express.Router();
 
+router.get("/admin/roomspagination", getAllRoomsBySearch);
 router.get("/admin/rooms", getAllRooms);
 router.get("/admin/rooms/:id", getRoomById);
 

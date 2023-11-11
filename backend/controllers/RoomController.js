@@ -1,6 +1,40 @@
 import Rooms from "../models/RoomModel.js";
 import path from "path";
+import { Op } from "sequelize";
 import fs from "fs";
+
+export const getAllRoomsBySearch = async (req, res) => {
+    const page = parseInt(req.query.page) || 0;
+    const limit = parseInt(req.query.limit) || 10;
+    const search = req.query.search || "";
+    const offset = page * limit;
+    const totalRows = await Rooms.count({
+        where : {
+            [Op.or]: [{name: {[Op.like]: '%'+search+'%'}}
+            ,{alamat: {[Op.like]: '%'+search+'%'}},
+            ]
+        }
+    });
+    const totalPage = Math.ceil(totalRows / limit);
+    const result = await Rooms.findAll({
+        where : {
+            [Op.or]: [{name: {[Op.like]: '%'+search+'%'}}
+            ,{alamat: {[Op.like]: '%'+search+'%'}},
+            ]
+        },
+        limit: limit,
+        offset: offset,
+        order: [['id', 'ASC']]
+    })
+
+    res.json({
+        result : result,
+        totalRows : totalRows,
+        totalPage : totalPage,
+        limit : limit,
+        page : page
+    });
+}
 
 export const getAllRooms = async (req, res) => {
     try {

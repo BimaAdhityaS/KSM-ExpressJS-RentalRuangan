@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/admin/dashboard" element={<Admin />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="/admin/rooms" element={<AdminRooms />} />
         <Route path="/admin/rooms/addroom" element={<AdminAddRoom />} />
         <Route path="/admin/rooms/:id" element={<AdminEditRoom />} />
@@ -24,7 +24,7 @@ function App() {
         {/* USER ROUTES */}
         <Route path="/" element={<Homepage />} />
         <Route path="/rooms" element={<UserRooms />} />
-        <Route path="/rooms/detail" element={<DetailedRoom />} />
+        <Route path="/rooms/detail/:id" element={<DetailedRoom />} />
       </Routes>
     </BrowserRouter>
   );

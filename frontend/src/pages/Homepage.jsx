@@ -23,7 +23,7 @@ const Homepage = () => {
               Book Now
             </a>
             <a
-              href="#/"
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
               className="px-8 py-3 text-xl font-semibold text-blue-500 bg-gray-100 rounded-lg shadow-md hover:bg-gray-200"
             >
               Contact Us
