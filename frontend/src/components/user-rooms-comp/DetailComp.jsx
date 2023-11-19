@@ -180,7 +180,7 @@ const DetailComp = () => {
                     </span>
 
                     <Link
-                      to={`https://api.whatsapp.com/send/?phone=62${rooms.kontak_pemilik}&text&type=phone_number&app_absent=0`} className="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">
+                      to={`https://wa.me/${rooms.kontak_pemilik}`} className="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">
                       Contact The Owner
                     </Link>
                   </div>
