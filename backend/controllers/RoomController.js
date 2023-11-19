@@ -12,6 +12,7 @@ export const getAllRoomsBySearch = async (req, res) => {
         where : {
             [Op.or]: [{name: {[Op.like]: '%'+search+'%'}}
             ,{alamat: {[Op.like]: '%'+search+'%'}},
+            {status: {[Op.like]: '%'+search+'%'}},
             ]
         }
     });
@@ -20,6 +21,7 @@ export const getAllRoomsBySearch = async (req, res) => {
         where : {
             [Op.or]: [{name: {[Op.like]: '%'+search+'%'}}
             ,{alamat: {[Op.like]: '%'+search+'%'}},
+            {status: {[Op.like]: '%'+search+'%'}},
             ]
         },
         limit: limit,

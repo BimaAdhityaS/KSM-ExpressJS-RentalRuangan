@@ -154,9 +154,9 @@ const UserRooms = () => {
                 <div>
                   <div className="flex items-center mt-2.5 mb-5">
                     <div className="flex items-center space-x-1 rtl:space-x-reverse">
-                      <p className="text-justify">
-                        {room.alamat.split(' ').slice(0, 5).join(' ')}
-                        {room.alamat.split(' ').length > 5 ? '...' : ''}
+                      <p className=" text-sm">
+                        {room.alamat.split(' ').slice(0, 4).join(' ')}
+                        {room.alamat.split(' ').length > 4 ? '...' : ''}
                       </p>
                     </div>
                     {room.status === "OPEN" ? (
@@ -183,7 +183,7 @@ const UserRooms = () => {
                     </p>
                   </span>
                   <div className="flex items-center justify-between">
-                    <span className="text-xl font-bold text-gray-900">
+                    <span className=" text-lg font-bold text-gray-900">
                       Rp {room.price.toLocaleString('id-ID')}
                       <span className="text-[15px] font-bold text-green-600">{room.pay_per}</span>
                     </span>
