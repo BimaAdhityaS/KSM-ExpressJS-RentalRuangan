@@ -11,9 +11,7 @@ const Homepage = () => {
             Welcome to <span className="text-blue-500">Room</span> Booking
           </h1>
           <p className="mt-5 text-xl text-center text-gray-600">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Voluptatibus quia, nulla! Maiores et perferendis eaque,
-            exercitationem praesentium nihil.
+          Temukan ruangan sempurna untuk acara Anda! Mari jelajahi pilihan ruangan berkualitas di platform kami!
           </p>
           <div className="flex flex-col items-center justify-center w-full mt-10 space-y-5 sm:flex-row sm:space-y-0 sm:space-x-5">
             <a
@@ -23,7 +21,7 @@ const Homepage = () => {
               Book Now
             </a>
             <a
-              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              href="https://www.youtube.com/watch?v=xvFZjo5PgG0"
               className="px-8 py-3 text-xl font-semibold text-blue-500 bg-gray-100 rounded-lg shadow-md hover:bg-gray-200"
             >
               Contact Us
